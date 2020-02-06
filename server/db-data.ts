@@ -820,6 +820,79 @@ export const LESSONS = {
   },
 
 
+  // Reactive Angular Course
+
+  80: {
+    id: 80,
+    'description': 'Introduction to Reactive Programming',
+    'duration': '03:45',
+    'seqNo': 0,
+    courseId: 17
+  },
+  81: {
+    id: 81,
+    'description': 'Introduction to RxJs',
+    'duration': '08:36',
+    'seqNo': 1,
+    courseId: 17
+  },
+  82: {
+    id: 82,
+    'description': 'Setting up the development environment',
+    'duration': '09:10',
+    'seqNo': 2,
+    courseId: 17
+  },
+  83: {
+    id: 83,
+    'description': 'Designing and building a Service Layer',
+    'duration': '07:20',
+    'seqNo': 3,
+    courseId: 17
+  },
+  84: {
+    id: 84,
+    'description': 'Stateless Observable Services',
+    'duration': '11:47',
+    'seqNo': 4,
+    courseId: 17
+  },
+  85: {
+    id: 85,
+    'description': 'Smart vs Presentational Components',
+    'duration': '06:30',
+    'seqNo': 5,
+    courseId: 17
+  },
+  86: {
+    id: 86,
+    'description': 'Lightweight state management',
+    'duration': '4:13',
+    'seqNo': 6,
+    courseId: 17
+  },
+  87: {
+    id: 87,
+    'description': 'Event bubbling anti-pattern',
+    'duration': '05:47',
+    'seqNo': 7,
+    courseId: 17
+  },
+  88: {
+    id: 88,
+    'description': 'Master detail with cached master table',
+    'duration': '05:17',
+    'seqNo': 8,
+    courseId: 17
+  },
+  89: {
+    id: 89,
+    'description': 'Error handling',
+    'duration': '07:50',
+    'seqNo': 9,
+    courseId: 17
+  }
+
 };
 
 export function findCourseById(courseId: number) {
