@@ -6,7 +6,6 @@ import * as moment from 'moment';
 import {fromEvent, noop} from 'rxjs';
 import {concatMap, distinctUntilChanged, exhaustMap, filter, mergeMap, tap} from 'rxjs/operators';
 import {fromPromise} from 'rxjs/internal-compatibility';
-import {Store} from '../common/store.service';
 
 @Component({
     selector: 'course-dialog',
@@ -26,16 +25,15 @@ export class CourseDialogComponent implements AfterViewInit {
     constructor(
         private fb: FormBuilder,
         private dialogRef: MatDialogRef<CourseDialogComponent>,
-        @Inject(MAT_DIALOG_DATA) course:Course,
-        private store:Store) {
+        @Inject(MAT_DIALOG_DATA) course:Course) {
 
         this.course = course;
 
         this.form = fb.group({
-            description: [course.description, Validators.required],
+            description: [course.titles.description, Validators.required],
             category: [course.category, Validators.required],
             releasedAt: [moment(), Validators.required],
-            longDescription: [course.longDescription,Validators.required]
+            longDescription: [course.titles.longDescription,Validators.required]
         });
 
     }
@@ -45,11 +43,7 @@ export class CourseDialogComponent implements AfterViewInit {
     }
 
     save() {
-        this.store.saveCourse(this.course.id, this.form.value)
-            .subscribe(
-                () => this.close(),
-                err => console.log("Error saving course", err)
-            );
+
     }
 
 

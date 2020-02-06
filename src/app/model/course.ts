@@ -1,11 +1,21 @@
 
 
 export interface Course {
-    id:number;
+  id:string;
+  titles: {
     description:string;
-    iconUrl: string;
-    courseListIcon: string;
     longDescription: string;
-    category:string;
-    lessonsCount:number;
+  };
+  seqNo:number;
+  iconUrl: string;
+  price:number;
+  uploadedImageUrl:string;
+  courseListIcon: string;
+  category:string;
+  lessonsCount:number;
+}
+
+
+export function sortCoursesBySeqNo(c1: Course, c2: Course) {
+  return c1.seqNo - c2.seqNo;
 }

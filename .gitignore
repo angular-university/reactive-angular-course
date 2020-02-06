@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 
+tmp.json
+
 # dependencies
 /node_modules
 
