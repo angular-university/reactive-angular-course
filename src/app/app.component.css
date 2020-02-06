@@ -6,3 +6,20 @@
 main {
     margin: 30px;
 }
+
+.user-avatar {
+  max-height: 35px;
+  border-radius: 4px;
+
+}
+
+.toolbar-tools {
+  display: flex;
+  width: 100%;
+}
+
+
+.filler {
+  flex: 1 1 auto;
+  width: 100%;
+}
