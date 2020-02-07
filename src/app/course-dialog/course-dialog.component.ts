@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import {Course} from "../model/course";
 import {FormBuilder, Validators, FormGroup} from "@angular/forms";
 import * as moment from 'moment';
-import {CoursesService} from '../services/courses.service';
+import {CoursesStore} from '../services/courses.store';
 
 @Component({
     selector: 'course-dialog',
@@ -24,15 +24,15 @@ export class CourseDialogComponent implements AfterViewInit {
         private fb: FormBuilder,
         private dialogRef: MatDialogRef<CourseDialogComponent>,
         @Inject(MAT_DIALOG_DATA) course:Course,
-        private courses: CoursesService) {
+        private store: CoursesStore) {
 
         this.course = course;
 
         this.form = fb.group({
-            description: [course.titles.description, Validators.required],
+            description: [course.description, Validators.required],
             category: [course.category, Validators.required],
             releasedAt: [moment(), Validators.required],
-            longDescription: [course.titles.longDescription,Validators.required]
+            longDescription: [course.longDescription,Validators.required]
         });
 
     }
@@ -42,14 +42,11 @@ export class CourseDialogComponent implements AfterViewInit {
     }
 
     save() {
-
       const changes = this.form.value;
 
-      this.courses.saveCourse(this.course.id, changes)
-        .subscribe(
-          () => this.dialogRef.close(changes)
-        );
+      this.store.saveCourse(this.course.id, changes).subscribe();
 
+      this.dialogRef.close(changes);
     }
 
     close() {

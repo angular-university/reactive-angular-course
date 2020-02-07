@@ -12,13 +12,8 @@ export function saveCourse(req: Request, res: Response) {
 
     const newCourse = {
       ...COURSES[id],
+      ...changes
     };
-
-    newCourse.titles = {
-        description: changes.description,
-        longDescription: changes.longDescription
-    };
-    newCourse.category = changes.category;
 
     COURSES[id] = newCourse;
 

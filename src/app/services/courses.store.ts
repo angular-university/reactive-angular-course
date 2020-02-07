@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Course, sortCoursesBySeqNo} from '../model/course';
-import {map} from 'rxjs/operators';
+import {map, shareReplay} from 'rxjs/operators';
 
 
 @Injectable({
@@ -35,7 +35,7 @@ export class CoursesStore {
       );
   }
 
-  private updateCourse(courseId:string, changes: Partial<Course>) {
+  saveCourse(courseId:string, changes: Partial<Course>) {
 
     const courses = this.subject.getValue();
 
@@ -43,10 +43,19 @@ export class CoursesStore {
 
     const newCourse = {
       ...courses[index],
-      changes
+      ...changes
     };
 
+    const newCourses = courses.slice(0);
 
+    newCourses[index] = newCourse;
+
+    this.subject.next(newCourses);
+
+    return this.http.put(`/api/courses/${courseId}`, changes)
+      .pipe(
+        shareReplay()
+      );
 
   }
 

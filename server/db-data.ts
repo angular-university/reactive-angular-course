@@ -3,10 +3,8 @@ export const COURSES: any = {
 
   17: {
     id: 17,
-    titles: {
-      description: 'Reactive Angular Course',
-      longDescription: 'How to build Angular applications in Reactive style using plain RxJs - Patterns and Anti-Patterns'
-    },
+    description: 'Reactive Angular Course',
+    longDescription: 'How to build Angular applications in Reactive style using plain RxJs - Patterns and Anti-Patterns',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/reactive-angular-course.jpg',
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
     category: 'BEGINNER',
@@ -18,10 +16,8 @@ export const COURSES: any = {
   },
   3: {
     id: 3,
-    titles: {
-      description: 'RxJs In Practice Course',
-      longDescription: 'Understand the RxJs Observable pattern, learn the RxJs Operators via practical examples'
-    },
+    description: 'RxJs In Practice Course',
+    longDescription: 'Understand the RxJs Observable pattern, learn the RxJs Operators via practical examples',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/rxjs-in-practice-course.png',
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
     category: 'BEGINNER',
@@ -33,10 +29,8 @@ export const COURSES: any = {
 
   4: {
     id: 4,
-    titles: {
-      description: 'NgRx (with NgRx Data) - The Complete Guide',
-      longDescription: 'Learn the modern Ngrx Ecosystem, including NgRx Data, Store, Effects, Router Store, Ngrx Entity, and Dev Tools.'
-    },
+    description: 'NgRx (with NgRx Data) - The Complete Guide',
+    longDescription: 'Learn the modern Ngrx Ecosystem, including NgRx Data, Store, Effects, Router Store, Ngrx Entity, and Dev Tools.',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/ngrx-v2.png',
     category: 'BEGINNER',
     lessonsCount: 10,
@@ -49,10 +43,8 @@ export const COURSES: any = {
 
   2: {
     id: 2,
-    titles: {
-      description: 'Angular Core Deep Dive',
-      longDescription: 'A detailed walk-through of the most important part of Angular - the Core and Common modules'
-    },
+    description: 'Angular Core Deep Dive',
+    longDescription: 'A detailed walk-through of the most important part of Angular - the Core and Common modules',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-core-in-depth-small.png',
     lessonsCount: 10,
     category: 'BEGINNER',
@@ -64,10 +56,9 @@ export const COURSES: any = {
 
   5: {
     id: 5,
-    titles: {
-      description: 'Angular for Beginners',
-      longDescription: 'Establish a solid layer of fundamentals, learn what\'s under the hood of Angular'
-    },
+
+    description: 'Angular for Beginners',
+    longDescription: 'Establish a solid layer of fundamentals, learn what\'s under the hood of Angular',
     iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/angular2-for-beginners-small-v2.png',
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
     category: 'BEGINNER',
@@ -79,10 +70,8 @@ export const COURSES: any = {
 
   12: {
     id: 12,
-    titles: {
-      description: 'Angular Testing Course',
-      longDescription: 'In-depth guide to Unit Testing and E2E Testing of Angular Applications',
-    },
+    description: 'Angular Testing Course',
+    longDescription: 'In-depth guide to Unit Testing and E2E Testing of Angular Applications',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-testing-small.png',
     category: 'BEGINNER',
     seqNo: 5,
@@ -95,10 +84,8 @@ export const COURSES: any = {
 
   1: {
     id: 1,
-    titles: {
-      description: 'Serverless Angular with Firebase Course',
-      longDescription: 'Serveless Angular with Firestore, Firebase Storage & Hosting, Firebase Cloud Functions & AngularFire'
-    },
+    description: 'Serverless Angular with Firebase Course',
+    longDescription: 'Serveless Angular with Firestore, Firebase Storage & Hosting, Firebase Cloud Functions & AngularFire',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/serverless-angular-small.png',
     lessonsCount: 10,
     category: 'BEGINNER',
@@ -109,10 +96,8 @@ export const COURSES: any = {
 
   16: {
     id: 16,
-    titles: {
-      description: 'Stripe Payments In Practice',
-      longDescription: 'Build your own ecommerce store & membership website with Firebase, Stripe and Express'
-    },
+    description: 'Stripe Payments In Practice',
+    longDescription: 'Build your own ecommerce store & membership website with Firebase, Stripe and Express',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/stripe-course.jpg',
     lessonsCount: 10,
     category: 'BEGINNER',
@@ -122,13 +107,10 @@ export const COURSES: any = {
   },
 
 
-
   14: {
     id: 14,
-    titles: {
-      description: 'NestJs In Practice (with MongoDB)',
-      longDescription: 'Build a modern REST backend using Typescript, MongoDB and the familiar Angular API.',
-    },
+    description: 'NestJs In Practice (with MongoDB)',
+    longDescription: 'Build a modern REST backend using Typescript, MongoDB and the familiar Angular API.',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/nestjs-v2.png',
     category: 'BEGINNER',
     lessonsCount: 10,
@@ -139,14 +121,10 @@ export const COURSES: any = {
   },
 
 
-
-
   6: {
     id: 6,
-    titles: {
-      description: 'Angular Security Course - Web Security Fundamentals',
-      longDescription: 'Learn Web Security Fundamentals and apply them to defend an Angular / Node Application from multiple types of attacks.'
-    },
+    description: 'Angular Security Course - Web Security Fundamentals',
+    longDescription: 'Learn Web Security Fundamentals and apply them to defend an Angular / Node Application from multiple types of attacks.',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/security-cover-small-v2.png',
     courseListIcon: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/lock-v2.png',
     category: 'ADVANCED',
@@ -158,10 +136,8 @@ export const COURSES: any = {
 
   7: {
     id: 7,
-    titles: {
-      description: 'Angular PWA - Progressive Web Apps Course',
-      longDescription: 'Learn Angular Progressive Web Applications, build the future of the Web Today.'
-    },
+    description: 'Angular PWA - Progressive Web Apps Course',
+    longDescription: 'Learn Angular Progressive Web Applications, build the future of the Web Today.',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-pwa-course.png',
     courseListIcon: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/alien.png',
     category: 'ADVANCED',
@@ -173,10 +149,8 @@ export const COURSES: any = {
 
   8: {
     id: 8,
-    titles: {
-      description: 'Angular Advanced Library Laboratory: Build Your Own Library',
-      longDescription: 'Learn Advanced Angular functionality typically used in Library Development. Advanced Components, Directives, Testing, Npm'
-    },
+    description: 'Angular Advanced Library Laboratory: Build Your Own Library',
+    longDescription: 'Learn Advanced Angular functionality typically used in Library Development. Advanced Components, Directives, Testing, Npm',
     iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/advanced_angular-small-v3.png',
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/thumbnails/angular-advanced-lesson-icon.png',
     category: 'ADVANCED',
@@ -187,10 +161,8 @@ export const COURSES: any = {
 
   9: {
     id: 9,
-    titles: {
-      description: 'The Complete Typescript Course',
-      longDescription: 'Complete Guide to Typescript From Scratch: Learn the language in-depth and use it to build a Node REST API.'
-    },
+    description: 'The Complete Typescript Course',
+    longDescription: 'Complete Guide to Typescript From Scratch: Learn the language in-depth and use it to build a Node REST API.',
     iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png',
     courseListIcon: 'https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-lesson.png',
     category: 'BEGINNER',
@@ -201,10 +173,8 @@ export const COURSES: any = {
 
   11: {
     id: 11,
-    titles: {
-      description: 'Angular Material Course',
-      longDescription: 'Build Applications with the official Angular Widget Library'
-    },
+    description: 'Angular Material Course',
+    longDescription: 'Build Applications with the official Angular Widget Library',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/material_design.png',
     category: 'BEGINNER',
     seqNo: 14,
@@ -900,7 +870,7 @@ export const USERS = {
     id: 1,
     email: 'test@angular-university.io',
     password: 'test',
-    pictureUrl: "https://lh3.googleusercontent.com/-1pUNnTB3vaA/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdn4uEc0ti8YE4Uuw6_Kz04tVe2Mg.CMID/s32-c/photo.jpg"
+    pictureUrl: 'https://lh3.googleusercontent.com/-1pUNnTB3vaA/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdn4uEc0ti8YE4Uuw6_Kz04tVe2Mg.CMID/s32-c/photo.jpg'
   }
 
 };
