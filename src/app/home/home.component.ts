@@ -4,6 +4,7 @@ import {interval, noop, Observable, of, throwError, timer} from 'rxjs';
 import {catchError, delay, delayWhen, finalize, map, retryWhen, shareReplay, tap} from 'rxjs/operators';
 import {createHttpObservable} from '../common/util';
 import {CoursesService} from '../services/courses.service';
+import {CoursesStore} from '../services/courses.store';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
     advancedCourses$: Observable<Course[]>;
 
 
-    constructor(private courses: CoursesService) {
+    constructor(private store: CoursesStore) {
 
     }
 
@@ -28,16 +29,10 @@ export class HomeComponent implements OnInit {
 
     reloadAllCourses() {
 
-      const courses$ = this.courses.loadAllCourses();
+      this.beginnerCourses$  = this.store.filterByCategory("BEGINNER");
 
-      this.beginnerCourses$  = courses$.pipe(map(filterByCategory("BEGINNER")));
-
-      this.advancedCourses$  = courses$.pipe(map(filterByCategory("ADVANCED")));
+      this.advancedCourses$  = this.store.filterByCategory("ADVANCED");
     }
-}
-
-function filterByCategory(category:string) {
-  return courses => courses.filter(course => course.category == category).sort(sortCoursesBySeqNo);
 }
 
 

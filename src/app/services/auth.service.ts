@@ -12,7 +12,7 @@ const AUTH_DATA = "auth_data";
 })
 export class AuthService {
 
-  private subject = new BehaviorSubject(null);
+  private subject = new BehaviorSubject<User>(null);
 
   user$: Observable<User>;
   isLoggedIn$: Observable<boolean>;
