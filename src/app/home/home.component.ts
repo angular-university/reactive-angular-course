@@ -23,15 +23,17 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
+      this.reloadAllCourses();
+    }
+
+    reloadAllCourses() {
 
       const courses$ = this.courses.loadAllCourses();
 
       this.beginnerCourses$  = courses$.pipe(map(filterByCategory("BEGINNER")));
 
       this.advancedCourses$  = courses$.pipe(map(filterByCategory("ADVANCED")));
-
     }
-
 }
 
 function filterByCategory(category:string) {

@@ -3,9 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import {Course} from "../model/course";
 import {FormBuilder, Validators, FormGroup} from "@angular/forms";
 import * as moment from 'moment';
-import {fromEvent, noop} from 'rxjs';
-import {concatMap, distinctUntilChanged, exhaustMap, filter, mergeMap, tap} from 'rxjs/operators';
-import {fromPromise} from 'rxjs/internal-compatibility';
+import {CoursesService} from '../services/courses.service';
 
 @Component({
     selector: 'course-dialog',
@@ -18,14 +16,15 @@ export class CourseDialogComponent implements AfterViewInit {
 
     course:Course;
 
-    @ViewChild('saveButton', { static: true }) saveButton: ElementRef;
+    @ViewChild('saveButton') saveButton: ElementRef;
 
-    @ViewChild('searchInput', { static: true }) searchInput : ElementRef;
+    @ViewChild('searchInput') searchInput : ElementRef;
 
     constructor(
         private fb: FormBuilder,
         private dialogRef: MatDialogRef<CourseDialogComponent>,
-        @Inject(MAT_DIALOG_DATA) course:Course) {
+        @Inject(MAT_DIALOG_DATA) course:Course,
+        private courses: CoursesService) {
 
         this.course = course;
 
@@ -44,14 +43,17 @@ export class CourseDialogComponent implements AfterViewInit {
 
     save() {
 
+      const changes = this.form.value;
+
+      this.courses.saveCourse(this.course.id, changes)
+        .subscribe(
+          () => this.dialogRef.close(changes)
+        );
+
     }
-
-
-
 
     close() {
         this.dialogRef.close();
     }
-
 
 }

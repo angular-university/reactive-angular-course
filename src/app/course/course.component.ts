@@ -32,7 +32,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
     lessons$: Observable<Lesson[]>;
 
 
-    @ViewChild('searchInput', { static: true }) input: ElementRef;
+    @ViewChild('searchInput') input: ElementRef;
 
     constructor(private route: ActivatedRoute) {
 
