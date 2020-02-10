@@ -796,70 +796,80 @@ export const LESSONS = {
     'description': 'Introduction to Reactive Programming',
     'duration': '03:45',
     'seqNo': 0,
-    courseId: 17
+    courseId: 17,
+    videoId: 'Df1QnesgB_s',
   },
   81: {
     id: 81,
     'description': 'Introduction to RxJs',
     'duration': '08:36',
     'seqNo': 1,
-    courseId: 17
+    courseId: 17,
+    videoId: '8m5RrAtqlyw',
   },
   82: {
     id: 82,
     'description': 'Setting up the development environment',
     'duration': '09:10',
     'seqNo': 2,
-    courseId: 17
+    courseId: 17,
+    videoId: '3fDbUB-nKqc',
   },
   83: {
     id: 83,
     'description': 'Designing and building a Service Layer',
     'duration': '07:20',
     'seqNo': 3,
-    courseId: 17
+    courseId: 17,
+    videoId: '',
   },
   84: {
     id: 84,
     'description': 'Stateless Observable Services',
     'duration': '11:47',
     'seqNo': 4,
-    courseId: 17
+    courseId: 17,
+    videoId: 'qvDPnRs_ZPA',
   },
   85: {
     id: 85,
     'description': 'Smart vs Presentational Components',
     'duration': '06:30',
     'seqNo': 5,
-    courseId: 17
+    courseId: 17,
+    videoId: '5bsZJGAelFM',
   },
   86: {
     id: 86,
     'description': 'Lightweight state management',
     'duration': '4:13',
     'seqNo': 6,
-    courseId: 17
+    courseId: 17,
+    videoId: '9m3_HHeP9Ko',
   },
   87: {
     id: 87,
     'description': 'Event bubbling anti-pattern',
     'duration': '05:47',
     'seqNo': 7,
-    courseId: 17
+    courseId: 17,
+    videoId: 'PRQCAL_RMVo',
   },
   88: {
     id: 88,
     'description': 'Master detail with cached master table',
     'duration': '05:17',
     'seqNo': 8,
-    courseId: 17
+    courseId: 17,
+    videoId: 'du4ib4jBUG0'
   },
   89: {
     id: 89,
     'description': 'Error handling',
     'duration': '07:50',
     'seqNo': 9,
-    courseId: 17
+    courseId: 17,
+    videoId: '8m5RrAtqlyw'
   }
 
 };

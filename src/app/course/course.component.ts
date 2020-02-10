@@ -1,75 +1,74 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Course} from "../model/course";
+import {ActivatedRoute} from '@angular/router';
+import {Course} from '../model/course';
 import {
-    debounceTime,
-    distinctUntilChanged,
-    startWith,
-    tap,
-    delay,
-    map,
-    concatMap,
-    switchMap,
-    withLatestFrom,
-    concatAll, shareReplay
+  debounceTime,
+  distinctUntilChanged,
+  startWith,
+  tap,
+  delay,
+  map,
+  concatMap,
+  switchMap,
+  withLatestFrom,
+  concatAll, shareReplay
 } from 'rxjs/operators';
 import {merge, fromEvent, Observable, concat} from 'rxjs';
 import {Lesson} from '../model/lesson';
 import {createHttpObservable} from '../common/util';
 import {CoursesService} from '../services/courses.service';
+import {SearchLessonsStore} from './search-lessons.store';
 
 
 @Component({
-    selector: 'course',
-    templateUrl: './course.component.html',
-    styleUrls: ['./course.component.css']
+  selector: 'course',
+  templateUrl: './course.component.html',
+  styleUrls: ['./course.component.css'],
+  providers: [
+    SearchLessonsStore
+  ]
 })
-export class CourseComponent implements OnInit, AfterViewInit {
+export class CourseComponent implements OnInit {
 
-    course : Course;
+  course: Course;
 
-    lessons$: Observable<Lesson[]>;
+  lessons$: Observable<Lesson[]>;
 
+  activeLesson: Lesson;
 
-    @ViewChild('searchInput') input: ElementRef;
-
-    constructor(private route: ActivatedRoute, private coursesService: CoursesService) {
-
-
-    }
-
-    ngOnInit() {
-
-        this.course = this.route.snapshot.data["course"];
+  showLessonDetail = false;
 
 
-    }
+  @ViewChild('searchInput') input: ElementRef;
 
-    ngAfterViewInit() {
-
-        const searchLessons$ =  fromEvent<any>(this.input.nativeElement, 'keyup')
-            .pipe(
-                map(event => event.target.value),
-                debounceTime(400),
-                distinctUntilChanged(),
-                switchMap(search => this.loadLessons(search))
-            );
-
-        const initialLessons$ = this.loadLessons();
-
-        this.lessons$ = concat(initialLessons$, searchLessons$);
-
-    }
-
-    loadLessons(search = ''): Observable<Lesson[]> {
-        return createHttpObservable(
-            `/api/lessons?courseId=${this.course.id}&pageSize=100&filter=${search}`)
-            .pipe(
-                map(res => res["payload"])
-            );
-    }
+  constructor(private route: ActivatedRoute, private lessonsStore: SearchLessonsStore) {
 
 
+  }
+
+  ngOnInit() {
+
+    this.course = this.route.snapshot.data['course'];
+
+    this.lessons$ = this.lessonsStore.lessons$;
+
+  }
+
+
+  onSearch(search: string) {
+    this.lessonsStore.searchLessons(this.course.id, search)
+      .subscribe();
+  }
+
+  openLesson(lesson: Lesson) {
+    this.showLessonDetail = true;
+    this.activeLesson = lesson;
+  }
+
+  onBackToSearch() {
+    this.showLessonDetail = false;
+    this.activeLesson = null;
+  }
 }
 
 

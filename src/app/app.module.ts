@@ -30,6 +30,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatMomentDateModule} from "@angular/material-moment-adapter";
 import {LoginComponent} from './login/login.component';
 import {CourseResolver} from './services/course.resolver';
+import { LessonComponent } from './lesson/lesson.component';
+import {SafeUrlPipe} from './common/safe-url.pipe';
 
 @NgModule({
     declarations: [
@@ -39,7 +41,9 @@ import {CourseResolver} from './services/course.resolver';
         CourseComponent,
         CoursesCardListComponent,
         CourseDialogComponent,
-        LoginComponent
+        LoginComponent,
+        LessonComponent,
+        SafeUrlPipe
     ],
     imports: [
         BrowserModule,
