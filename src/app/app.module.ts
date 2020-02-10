@@ -32,6 +32,7 @@ import {LoginComponent} from './login/login.component';
 import {CourseResolver} from './services/course.resolver';
 import { LessonComponent } from './lesson/lesson.component';
 import {SafeUrlPipe} from './common/safe-url.pipe';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,8 @@ import {SafeUrlPipe} from './common/safe-url.pipe';
         CourseDialogComponent,
         LoginComponent,
         LessonComponent,
-        SafeUrlPipe
+        SafeUrlPipe,
+        MessagesComponent
     ],
     imports: [
         BrowserModule,
