@@ -27,8 +27,6 @@ export class HomeComponent implements OnInit {
 
       this.beginnerCourses$  = this.store.filterByCategory("BEGINNER");
 
-      this.beginnerCourses$.subscribe(console.log);
-
       this.advancedCourses$  = this.store.filterByCategory("ADVANCED");
 
     }

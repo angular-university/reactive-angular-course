@@ -29,6 +29,7 @@ import { CourseDialogComponent } from './course-dialog/course-dialog.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatMomentDateModule} from "@angular/material-moment-adapter";
 import {LoginComponent} from './login/login.component';
+import {CourseResolver} from './services/course.resolver';
 
 @NgModule({
     declarations: [
@@ -65,7 +66,7 @@ import {LoginComponent} from './login/login.component';
         ReactiveFormsModule
     ],
     providers: [
-
+      CourseResolver
     ],
     bootstrap: [AppComponent],
     entryComponents: [CourseDialogComponent]
