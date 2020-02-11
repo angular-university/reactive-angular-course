@@ -5,6 +5,7 @@ import {catchError, delay, delayWhen, finalize, map, retryWhen, shareReplay, tap
 import {createHttpObservable} from '../common/util';
 import {CoursesService} from '../services/courses.service';
 import {CoursesStore} from '../services/courses.store';
+import {MessagesService} from '../messages/messages.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
     advancedCourses$: Observable<Course[]>;
 
 
-    constructor(private store: CoursesStore) {
+    constructor(private store: CoursesStore, private messages: MessagesService) {
 
     }
 

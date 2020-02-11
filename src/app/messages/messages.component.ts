@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {MessagesService} from './messages.service';
+import {Message} from '../model/message';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'messages',
@@ -7,10 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagesComponent implements OnInit {
 
+  errors$: Observable<string[]>;
 
-  ngOnInit() {
+  showMessages = false;
+
+  constructor(private messagesService: MessagesService) {
 
   }
 
+  ngOnInit() {
+
+    this.errors$ = this.messagesService.errors$
+      .pipe(
+        tap(() => this.showMessages = true)
+      );
+
+  }
+
+
+  onClose() {
+
+    this.showMessages = false;
+
+  }
 
 }

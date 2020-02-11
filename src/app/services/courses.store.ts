@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import {Course, sortCoursesBySeqNo} from '../model/course';
-import {map, shareReplay} from 'rxjs/operators';
+import {catchError, map, shareReplay} from 'rxjs/operators';
+import {MessagesService} from '../messages/messages.service';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class CoursesStore {
 
   courses$ = this.subject.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private messages: MessagesService) {
     this.loadAllCourses();
   }
 
@@ -22,6 +23,12 @@ export class CoursesStore {
     this.http.get<Course[]>('/api/courses')
       .pipe(
         map(response => response["payload"]),
+        catchError(err => {
+          const message = "Could not not load courses";
+          this.messages.showErrors(message);
+          console.log(message, err);
+          return throwError(err);
+        })
       )
       .subscribe(
         courses => this.subject.next(courses)

@@ -27,6 +27,7 @@ export class CoursesCardListComponent {
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+    dialogConfig.width = "400px";
 
     dialogConfig.data = course;
 
