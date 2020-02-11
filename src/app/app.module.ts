@@ -33,9 +33,7 @@ import {LessonComponent} from './lesson/lesson.component';
 import {SafeUrlPipe} from './common/safe-url.pipe';
 import {MessagesComponent} from './messages/messages.component';
 import {SearchLessonsComponent} from './search-lessons/search-lessons.component';
-import {MessagesService} from './messages/messages.service';
 import { LoadingComponent } from './loading/loading.component';
-import {LoadingService} from './loading/loading.service';
 
 @NgModule({
   declarations: [
@@ -78,8 +76,6 @@ import {LoadingService} from './loading/loading.service';
     ReactiveFormsModule
   ],
   providers: [
-    MessagesService,
-    LoadingService
   ],
   bootstrap: [AppComponent],
   entryComponents: [CourseDialogComponent]

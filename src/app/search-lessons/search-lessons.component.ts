@@ -15,60 +15,25 @@ import {
 } from 'rxjs/operators';
 import {merge, fromEvent, Observable, concat} from 'rxjs';
 import {Lesson} from '../model/lesson';
-import {createHttpObservable} from '../common/util';
-import {CoursesService} from '../services/courses.service';
-import {SearchLessonsStore} from './search-lessons.store';
 
 
 @Component({
   selector: 'course',
   templateUrl: './search-lessons.component.html',
-  styleUrls: ['./search-lessons.component.css'],
-  providers: [
-    SearchLessonsStore
-  ]
+  styleUrls: ['./search-lessons.component.css']
 })
 export class SearchLessonsComponent implements OnInit {
 
-  course: Course;
-
-  lessons$: Observable<Lesson[]>;
-
-  activeLesson: Lesson;
-
-  showLessonDetail = false;
-
-
-  @ViewChild('searchInput') input: ElementRef;
-
-  constructor(private route: ActivatedRoute, private lessonsStore: SearchLessonsStore) {
+  constructor() {
 
 
   }
 
   ngOnInit() {
 
-    this.course = this.route.snapshot.data['course'];
-
-    this.lessons$ = this.lessonsStore.lessons$;
 
   }
 
-
-  onSearch(search: string) {
-    this.lessonsStore.searchLessons(this.course.id, search)
-      .subscribe();
-  }
-
-  openLesson(lesson: Lesson) {
-    this.showLessonDetail = true;
-    this.activeLesson = lesson;
-  }
-
-  onBackToSearch() {
-    this.showLessonDetail = false;
-    this.activeLesson = null;
-  }
 }
 
 

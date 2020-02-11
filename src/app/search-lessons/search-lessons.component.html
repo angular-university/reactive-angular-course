@@ -8,14 +8,12 @@
 
   </mat-form-field>
 
-  <button class="search" mat-raised-button color="primary" (click)="onSearch(searchInput.value)">
+  <button class="search" mat-raised-button color="primary">
     <mat-icon>search</mat-icon>
     Search
   </button>
 
-  <ng-container *ngIf="(lessons$ | async) as lessons">
-
-    <table class="lessons-table mat-elevation-z7" *ngIf="lessons?.length && !showLessonDetail">
+    <table class="lessons-table mat-elevation-z7">
 
       <thead>
       <th>#</th>
@@ -23,35 +21,13 @@
       <th>Duration</th>
       </thead>
 
-      <tr class="lesson-row" *ngFor="let lesson of lessons" (click)="openLesson(lesson)">
+      <!-- tr class="lesson-row">
         <td class="seqno-cell">{{lesson.seqNo}}</td>
         <td class="description-cell">{{lesson.description}}</td>
         <td class="duration-cell">{{lesson.duration}}</td>
-      </tr>
+      </tr -->
 
     </table>
-
-
-    <div class="lesson-detail" *ngIf="showLessonDetail">
-
-      <button mat-raised-button (click)="onBackToSearch()">
-        <mat-icon>arrow_back_ios</mat-icon>
-        Back to Search
-      </button>
-
-      <h3>{{ activeLesson?.description }}</h3>
-      <h5>Duration: {{ activeLesson?.duration  }}</h5>
-
-      <iframe width="400" height="220"
-              [src]= "('https://www.youtube.com/embed/' + activeLesson?.videoId) | safeUrl"
-              frameborder="0" allowfullscreen>
-
-      </iframe>
-
-
-    </div>
-
-  </ng-container>
 
 
 

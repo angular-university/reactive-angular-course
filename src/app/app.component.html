@@ -22,12 +22,12 @@
         <span>Register</span>
       </a>
 
-      <a mat-list-item routerLink="login" *ngIf="auth.isLoggedOut$ | async">
+      <a mat-list-item routerLink="login">
         <mat-icon>account_circle</mat-icon>
         <span>Login</span>
       </a>
 
-      <a mat-list-item (click)="logout()" *ngIf="auth.isLoggedIn$ | async">
+      <a mat-list-item (click)="logout()">
         <mat-icon>exit_to_app</mat-icon>
         <span>Logout</span>
       </a>
@@ -46,20 +46,10 @@
 
       <div class="filler"></div>
 
-      <ng-container *ngIf="(auth.user$ | async) as user">
-
-        <img class="user-avatar" [src]="user?.pictureUrl">
-
-      </ng-container>
-
     </div>
 
 
   </mat-toolbar>
-
-  <messages></messages>
-
-  <loading></loading>
 
   <router-outlet></router-outlet>
 
