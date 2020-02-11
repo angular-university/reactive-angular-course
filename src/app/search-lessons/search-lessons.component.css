@@ -60,6 +60,9 @@
   margin-left: 10px;
 }
 
+.lesson-row {
+  cursor: pointer;
+}
 
 .lesson-detail {
   margin-top: 40px;

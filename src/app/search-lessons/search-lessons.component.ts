@@ -22,35 +22,53 @@ import {SearchLessonsStore} from './search-lessons.store';
 
 @Component({
   selector: 'course',
-  templateUrl: './course.component.html',
-  styleUrls: ['./course.component.css'],
+  templateUrl: './search-lessons.component.html',
+  styleUrls: ['./search-lessons.component.css'],
   providers: [
     SearchLessonsStore
   ]
 })
-export class CourseComponent implements OnInit {
+export class SearchLessonsComponent implements OnInit {
 
-  course$: Observable<Course>;
+  course: Course;
 
   lessons$: Observable<Lesson[]>;
 
-  constructor(private route: ActivatedRoute, private coursesService: CoursesService) {
+  activeLesson: Lesson;
+
+  showLessonDetail = false;
+
+
+  @ViewChild('searchInput') input: ElementRef;
+
+  constructor(private route: ActivatedRoute, private lessonsStore: SearchLessonsStore) {
 
 
   }
 
   ngOnInit() {
 
-      const courseId = parseInt(this.route.snapshot.paramMap.get("courseId"));
+    this.course = this.route.snapshot.data['course'];
 
-      this.course$ = this.coursesService.loadCourseById(courseId);
-
-      this.lessons$ = this.coursesService.loadAllCourseLessons(courseId);
+    this.lessons$ = this.lessonsStore.lessons$;
 
   }
 
 
+  onSearch(search: string) {
+    this.lessonsStore.searchLessons(this.course.id, search)
+      .subscribe();
+  }
 
+  openLesson(lesson: Lesson) {
+    this.showLessonDetail = true;
+    this.activeLesson = lesson;
+  }
+
+  onBackToSearch() {
+    this.showLessonDetail = false;
+    this.activeLesson = null;
+  }
 }
 
 

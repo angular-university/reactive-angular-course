@@ -4,7 +4,7 @@ import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
 import {CourseComponent} from './course/course.component';
 import {LoginComponent} from './login/login.component';
-import {CourseResolver} from './services/course.resolver';
+import {SearchLessonsComponent} from './search-lessons/search-lessons.component';
 
 const routes: Routes = [
   {
@@ -13,15 +13,16 @@ const routes: Routes = [
 
   },
   {
+    path:"search-lessons",
+    component: SearchLessonsComponent
+  },
+  {
     path: 'about',
     component: AboutComponent
   },
   {
-    path: 'courses/:id',
-    component: CourseComponent,
-    resolve: {
-      course: CourseResolver
-    }
+    path: 'courses/:courseId',
+    component: CourseComponent
   },
   {
     path: 'login',

@@ -1,64 +1,36 @@
-<div class="course">
 
-  <h2>{{course?.description}}</h2>
-
-  <img class="course-thumbnail" [src]="course?.iconUrl">
-
-
-  <mat-form-field class="search-bar">
-
-    <input matInput placeholder="Type your search" #searchInput autocomplete="off">
-
-  </mat-form-field>
-
-  <button class="search" mat-raised-button color="primary" (click)="onSearch(searchInput.value)">
-    <mat-icon>search</mat-icon>
-    Search
-  </button>
+<ng-container *ngIf="(course$ | async) as course">
 
   <ng-container *ngIf="(lessons$ | async) as lessons">
 
-    <table class="lessons-table mat-elevation-z7" *ngIf="lessons?.length && !showLessonDetail">
+    <div class="course">
 
-      <thead>
-      <th>#</th>
-      <th>Description</th>
-      <th>Duration</th>
-      </thead>
+      <h2>{{course?.description}}</h2>
 
-      <tr class="lesson-row" *ngFor="let lesson of lessons" (click)="openLesson(lesson)">
-        <td class="seqno-cell">{{lesson.seqNo}}</td>
-        <td class="description-cell">{{lesson.description}}</td>
-        <td class="duration-cell">{{lesson.duration}}</td>
-      </tr>
+      <img class="course-thumbnail" [src]="course?.iconUrl">
 
-    </table>
+      <table class="lessons-table mat-elevation-z7">
 
+        <thead>
+        <th>#</th>
+        <th>Description</th>
+        <th>Duration</th>
+        </thead>
 
-    <div class="lesson-detail" *ngIf="showLessonDetail">
+        <tr class="lesson-row" *ngFor="let lesson of lessons">
+          <td class="seqno-cell">{{lesson.seqNo}}</td>
+          <td class="description-cell">{{lesson.description}}</td>
+          <td class="duration-cell">{{lesson.duration}}</td>
+        </tr>
 
-      <button mat-raised-button (click)="onBackToSearch()">
-        <mat-icon>arrow_back_ios</mat-icon>
-        Back to Search
-      </button>
-
-      <h3>{{ activeLesson?.description }}</h3>
-      <h5>Duration: {{ activeLesson?.duration  }}</h5>
-
-      <iframe width="400" height="220"
-              [src]= "('https://www.youtube.com/embed/' + activeLesson?.videoId) | safeUrl"
-              frameborder="0" allowfullscreen>
-
-      </iframe>
-
+      </table>
 
     </div>
 
   </ng-container>
 
+</ng-container>
 
-
-</div>
 
 
 
