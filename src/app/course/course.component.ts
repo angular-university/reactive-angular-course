@@ -15,22 +15,18 @@ import {
 } from 'rxjs/operators';
 import {merge, fromEvent, Observable, concat, throwError} from 'rxjs';
 import {Lesson} from '../model/lesson';
-import {SearchLessonsStore} from './search-lessons.store';
 
 
 @Component({
   selector: 'course',
   templateUrl: './course.component.html',
-  styleUrls: ['./course.component.css'],
-  providers: [
-    SearchLessonsStore
-  ]
+  styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
 
-  course$: Observable<Course>;
+  course: Course;
 
-  lessons$: Observable<Lesson[]>;
+  lessons: Lesson[];
 
   constructor(private route: ActivatedRoute) {
 
