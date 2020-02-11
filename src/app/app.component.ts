@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from './services/auth.service';
-import {MessagesService} from './messages/messages.service';
+import {LoadingService} from './loading/loading.service';
 
 
 @Component({

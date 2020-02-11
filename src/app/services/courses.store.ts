@@ -4,6 +4,7 @@ import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import {Course, sortCoursesBySeqNo} from '../model/course';
 import {catchError, map, shareReplay} from 'rxjs/operators';
 import {MessagesService} from '../messages/messages.service';
+import {LoadingService} from '../loading/loading.service';
 
 
 @Injectable({
@@ -15,24 +16,32 @@ export class CoursesStore {
 
   courses$ = this.subject.asObservable();
 
-  constructor(private http: HttpClient, private messages: MessagesService) {
+  constructor(
+    private http: HttpClient,
+    private messages: MessagesService,
+    private loading: LoadingService) {
+
     this.loadAllCourses();
+
   }
 
   private loadAllCourses() {
-    this.http.get<Course[]>('/api/courses')
-      .pipe(
-        map(response => response["payload"]),
-        catchError(err => {
-          const message = "Could not not load courses";
-          this.messages.showErrors(message);
-          console.log(message, err);
-          return throwError(err);
-        })
-      )
-      .subscribe(
-        courses => this.subject.next(courses)
-      );
+
+      const loadCourses$ =  this.http.get<Course[]>('/api/courses')
+        .pipe(
+          map(response => response["payload"]),
+          catchError(err => {
+            const message = "Could not not load courses";
+            this.messages.showErrors(message);
+            console.log(message, err);
+            return throwError(err);
+          })
+        );
+
+      this.loading.showLoaderUntilCompleted(loadCourses$)
+        .subscribe(
+          courses => this.subject.next(courses)
+        );
   }
 
   filterByCategory(category:string): Observable<Course[]> {
