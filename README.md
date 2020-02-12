@@ -1,5 +1,5 @@
 
-## The RxJs In Practice Course
+## The Reactive Angular Course
 
 This repository contains the code of the [Reactive Angular Course](https://angular-university.io/course/reactive-angular-course).
 
