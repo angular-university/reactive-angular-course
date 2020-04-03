@@ -26,6 +26,9 @@
     font-size: 20px;
 }
 
+.back-btn {
+    margin-top: 30px;
+}
 
 .lessons-table {
     min-height: 360px;
