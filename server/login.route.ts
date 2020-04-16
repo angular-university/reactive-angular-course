@@ -13,7 +13,7 @@ export function loginUser(req: Request, res: Response) {
   const user = authenticate(email, password);
 
   if (user) {
-    res.status(200).json(user);
+    res.status(200).json({email: user.email});
   }
   else {
     res.sendStatus(403);

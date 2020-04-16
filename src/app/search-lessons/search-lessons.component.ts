@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Course} from '../model/course';
 import {
@@ -15,60 +15,43 @@ import {
 } from 'rxjs/operators';
 import {merge, fromEvent, Observable, concat} from 'rxjs';
 import {Lesson} from '../model/lesson';
-import {createHttpObservable} from '../common/util';
 import {CoursesService} from '../services/courses.service';
-import {SearchLessonsStore} from './search-lessons.store';
 
 
 @Component({
   selector: 'course',
   templateUrl: './search-lessons.component.html',
   styleUrls: ['./search-lessons.component.css'],
-  providers: [
-    SearchLessonsStore
-  ]
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchLessonsComponent implements OnInit {
 
-  course: Course;
+  searchResults$ : Observable<Lesson[]>;
 
-  lessons$: Observable<Lesson[]>;
+  activeLesson:Lesson;
 
-  activeLesson: Lesson;
-
-  showLessonDetail = false;
-
-
-  @ViewChild('searchInput') input: ElementRef;
-
-  constructor(private route: ActivatedRoute, private lessonsStore: SearchLessonsStore) {
+  constructor(private coursesService: CoursesService) {
 
 
   }
 
   ngOnInit() {
 
-    this.course = this.route.snapshot.data['course'];
-
-    this.lessons$ = this.lessonsStore.lessons$;
 
   }
 
+    onSearch(search:string) {
+        this.searchResults$  = this.coursesService.searchLessons(search);
+    }
 
-  onSearch(search: string) {
-    this.lessonsStore.searchLessons(this.course.id, search)
-      .subscribe();
-  }
+    openLesson(lesson:Lesson) {
+      this.activeLesson = lesson;
+    }
 
-  openLesson(lesson: Lesson) {
-    this.showLessonDetail = true;
-    this.activeLesson = lesson;
-  }
+    onBackToSearch() {
+      this.activeLesson = null;
+    }
 
-  onBackToSearch() {
-    this.showLessonDetail = false;
-    this.activeLesson = null;
-  }
 }
 
 

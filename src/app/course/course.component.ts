@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Course} from '../model/course';
 import {
@@ -13,42 +13,59 @@ import {
   withLatestFrom,
   concatAll, shareReplay, catchError
 } from 'rxjs/operators';
-import {merge, fromEvent, Observable, concat, throwError} from 'rxjs';
+import {merge, fromEvent, Observable, concat, throwError, combineLatest} from 'rxjs';
 import {Lesson} from '../model/lesson';
-import {createHttpObservable} from '../common/util';
 import {CoursesService} from '../services/courses.service';
-import {SearchLessonsStore} from './search-lessons.store';
-import {MessagesService} from '../messages/messages.service';
+
+
+interface CourseData {
+    course: Course;
+    lessons: Lesson[];
+}
 
 
 @Component({
   selector: 'course',
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css'],
-  providers: [
-    SearchLessonsStore
-  ]
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseComponent implements OnInit {
 
-  course$: Observable<Course>;
+  data$: Observable<CourseData>;
 
-  lessons$: Observable<Lesson[]>;
 
   constructor(private route: ActivatedRoute,
-              private coursesService: CoursesService,
-              private messages: MessagesService) {
+              private coursesService: CoursesService) {
 
 
   }
 
   ngOnInit() {
 
-    const courseId = parseInt(this.route.snapshot.paramMap.get('courseId'));
+        const courseId = parseInt(this.route.snapshot.paramMap.get("courseId"));
 
-    this.course$ = this.coursesService.loadCourseById(courseId);
+        const course$ = this.coursesService.loadCourseById(courseId)
+            .pipe(
+                startWith(null)
+            );
 
-    this.lessons$ = this.coursesService.loadAllCourseLessons(courseId);
+        const lessons$ = this.coursesService.loadAllCourseLessons(courseId)
+            .pipe(
+                startWith([])
+            );
+
+        this.data$ = combineLatest([course$, lessons$])
+            .pipe(
+                map(([course, lessons]) => {
+                    return {
+                        course,
+                        lessons
+                    }
+                }),
+                tap(console.log)
+            );
+
 
   }
 

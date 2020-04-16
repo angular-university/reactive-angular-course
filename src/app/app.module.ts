@@ -11,7 +11,6 @@ import {MatCardModule} from '@angular/material/card';
 import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import {CoursesCardListComponent} from './courses-card-list/courses-card-list.component';
 import {CourseComponent} from './course/course.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -33,9 +32,10 @@ import {LessonComponent} from './lesson/lesson.component';
 import {SafeUrlPipe} from './common/safe-url.pipe';
 import {MessagesComponent} from './messages/messages.component';
 import {SearchLessonsComponent} from './search-lessons/search-lessons.component';
-import {MessagesService} from './messages/messages.service';
 import { LoadingComponent } from './loading/loading.component';
+import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
 import {LoadingService} from './loading/loading.service';
+import {MessagesService} from './messages/messages.service';
 
 @NgModule({
   declarations: [
@@ -43,14 +43,14 @@ import {LoadingService} from './loading/loading.service';
     HomeComponent,
     AboutComponent,
     CourseComponent,
-    CoursesCardListComponent,
     CourseDialogComponent,
     LoginComponent,
     LessonComponent,
     SafeUrlPipe,
     MessagesComponent,
     SearchLessonsComponent,
-    LoadingComponent
+    LoadingComponent,
+    CoursesCardListComponent
 
   ],
   imports: [
@@ -78,8 +78,8 @@ import {LoadingService} from './loading/loading.service';
     ReactiveFormsModule
   ],
   providers: [
-    MessagesService,
-    LoadingService
+      LoadingService,
+      MessagesService
   ],
   bootstrap: [AppComponent],
   entryComponents: [CourseDialogComponent]
