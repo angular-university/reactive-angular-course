@@ -83,6 +83,49 @@ It's also possible to download a ZIP file for a given branch,  using the branch 
 
 # Other Courses
 
+# NgRx (with NgRx Data) - The Complete Guide
+
+If you are looking for the [Ngrx (with NgRx Data) - The Complete Guide](https://angular-university.io/course/ngrx-course), the repo with the full code can be found here:
+
+![Ngrx (with NgRx Data) - The Complete Guide](https://angular-university.s3-us-west-1.amazonaws.com/course-images/ngrx-v2.png)
+
+
+# Angular Core Deep Dive Course
+
+If you are looking for the [Angular Core Deep Dive Course](https://angular-university.io/course/angular-course), the repo with the full code can be found here:
+
+![Angular Core Deep Dive](https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-core-in-depth-small.png)
+
+# RxJs In Practice
+
+If you are looking for the [RxJs In Practice](https://angular-university.io/course/rxjs-course), the repo with the full code can be found here:
+
+![RxJs In Practice Course](https://s3-us-west-1.amazonaws.com/angular-university/course-images/rxjs-in-practice-course.png)
+
+# NestJs In Practice (with MongoDB)
+
+If you are looking for the [NestJs In Practice Course](https://angular-university.io/course/nestjs-course), the repo with the full code can be found here:
+
+![NestJs In Practice Course](https://angular-university.s3-us-west-1.amazonaws.com/course-images/nestjs-v2.png)
+
+# Angular Testing Course
+
+If you are looking for the [Angular Testing Course](https://angular-university.io/course/angular-testing-course), the repo with the full code can be found here:
+
+![Angular Testing Course](https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-testing-small.png)
+
+# Serverless Angular with Firebase Course
+
+If you are looking for the [Serverless Angular with Firebase Course](https://angular-university.io/course/firebase-course), the repo with the full code can be found here:
+
+![Serverless Angular with Firebase Course](https://s3-us-west-1.amazonaws.com/angular-university/course-images/serverless-angular-small.png)
+
+# Angular Universal Course
+
+If you are looking for the [Angular Universal Course](https://angular-university.io/course/angular-universal-course), the repo with the full code can be found here:
+
+![Angular Universal Course](https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-universal-small.png)
+
 # Angular PWA Course
 
 If you are looking for the [Angular PWA Course](https://angular-university.io/course/angular-pwa-course), the repo with the full code can be found here:
@@ -115,31 +158,7 @@ If you are looking for the RxJs and Reactive Patterns Angular Architecture Cours
 ![RxJs and Reactive Patterns Angular Architecture Course](https://s3-us-west-1.amazonaws.com/angular-academy/blog/images/rxjs-reactive-patterns-small.png)
 
 
-
-## Angular Ngrx Reactive Extensions Architecture Course
-
-If you are looking for the Angular Ngrx Reactive Extensions Architecture Course code, the repo with the full code can be found here:
-
-[Angular Ngrx Reactive Extensions Architecture Course](https://angular-university.io/course/angular2-ngrx)
-
-[Github repo for this course](https://github.com/angular-university/ngrx-course)
-
-![Angular Ngrx Course](https://angular-academy.s3.amazonaws.com/thumbnails/ngrx-angular.png)
-
-
-
-## Angular 2 and Firebase - Build a Web Application Course
-
-If you are looking for the Angular 2 and Firebase - Build a Web Application Course code, the repo with the full code can be found here:
-
-[Angular 2 and Firebase - Build a Web Application](https://angular-university.io/course/build-an-application-with-angular2)
-
-[Github repo for this course](https://github.com/angular-university/angular-firebase-app)
-
-![Angular firebase course](https://angular-academy.s3.amazonaws.com/thumbnails/angular_app-firebase-small.jpg)
-
-
-## Complete Typescript 2 Course - Build A REST API
+## Complete Typescript Course - Build A REST API
 
 If you are looking for the Complete Typescript 2 Course - Build a REST API, the repo with the full code can be found here:
 
@@ -148,4 +167,5 @@ If you are looking for the Complete Typescript 2 Course - Build a REST API, the 
 [Github repo for this course](https://github.com/angular-university/complete-typescript-course)
 
 ![Complete Typescript Course](https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png)
+
 
