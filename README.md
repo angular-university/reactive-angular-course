@@ -3,7 +3,7 @@
 
 This repository contains the code of the [Reactive Angular Course](https://angular-university.io/course/reactive-angular-course).
 
-This course repository is updated to Angular v9, and there is a  package-lock.json file available, for avoiding semantic versioning installation issues.
+This course repository is updated to Angular v10, and there is a  package-lock.json file available, for avoiding semantic versioning installation issues.
 
 ![Reactive Angular Course](https://angular-university.s3-us-west-1.amazonaws.com/course-images/reactive-angular-course.jpg)
 

@@ -129,7 +129,7 @@
   "defaultProject": "angular-material-course",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "scss"
+      "style": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": ""
