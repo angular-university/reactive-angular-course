@@ -1,79 +1,21 @@
-
 <div class="courses-panel">
 
-    <h3>All Courses</h3>
+  <h3>All Courses</h3>
 
-    <mat-tab-group>
+  <mat-tab-group>
 
-        <mat-tab label="Beginners">
+    <mat-tab label="Beginners">
 
-          <mat-card *ngFor="let course of (beginnerCourses$ | async)" class="course-card mat-elevation-z10">
+      <courses-card-list [courses]="beginnerCourses$ | async" (coursesChanged)="reloadCourses()"> </courses-card-list>
 
-            <mat-card-header>
+    </mat-tab>
 
-              <mat-card-title>{{course.description}}</mat-card-title>
+    <mat-tab label="Advanced">
 
-            </mat-card-header>
+      <courses-card-list [courses]="advancedCourses$ | async" (coursesChanged)="reloadCourses()"> </courses-card-list>
 
-            <img mat-card-image [src]="course.iconUrl">
+    </mat-tab>
 
-            <mat-card-content>
-              <p>{{course.longDescription}}</p>
-            </mat-card-content>
-
-            <mat-card-actions class="course-actions">
-
-              <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/courses', course.id]">
-                VIEW COURSE
-              </button>
-
-              <button mat-button class="mat-raised-button mat-accent"
-                      (click)="editCourse(course)">
-                EDIT
-              </button>
-
-            </mat-card-actions>
-
-          </mat-card>
-
-        </mat-tab>
-
-        <mat-tab label="Advanced">
-
-          <mat-card *ngFor="let course of (advancedCourses$ | async)" class="course-card mat-elevation-z10">
-
-            <mat-card-header>
-
-              <mat-card-title>{{course.description}}</mat-card-title>
-
-            </mat-card-header>
-
-            <img mat-card-image [src]="course.iconUrl">
-
-            <mat-card-content>
-              <p>{{course.longDescription}}</p>
-            </mat-card-content>
-
-            <mat-card-actions class="course-actions">
-
-              <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/courses', course.id]">
-                VIEW COURSE
-              </button>
-
-              <button mat-button class="mat-raised-button mat-accent"
-                      (click)="editCourse(course)">
-                EDIT
-              </button>
-
-            </mat-card-actions>
-
-          </mat-card>
-
-        </mat-tab>
-
-    </mat-tab-group>
-
-
+  </mat-tab-group>
 
 </div>
-
