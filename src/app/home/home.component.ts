@@ -1,3 +1,4 @@
+import { LoadingService } from './../loading/loading.service';
 import { Component, OnInit } from '@angular/core';
 import { Course, sortCoursesBySeqNo } from '../model/course';
 import { interval, noop, Observable, of, throwError, timer } from 'rxjs';
@@ -28,24 +29,29 @@ export class HomeComponent implements OnInit {
   advancedCourses$: Observable<Course[]>;
 
   constructor(
-    private coursesService: CourseService) { }
+    private coursesService: CourseService,
+    private loadingService: LoadingService) { }
 
   ngOnInit() {
     this.reloadCourses();
   }
 
   reloadCourses() {
-    const courses$ = this.coursesService
-      .loadAllCourses()
-      .pipe(map((courses) => courses.sort(sortCoursesBySeqNo)));
 
-    this.beginnerCourses$ = courses$.pipe(
+    const courses$ = this.coursesService.loadAllCourses()
+      .pipe(
+        map((courses) => courses.sort(sortCoursesBySeqNo))
+        );
+
+    const loadCourses$ = this.loadingService.showLoaderUntilCompleted(courses$);
+
+    this.beginnerCourses$ = loadCourses$.pipe(
       map((courses) =>
         courses.filter((course) => course.category === 'BEGINNER')
       )
     );
 
-    this.advancedCourses$ = courses$.pipe(
+    this.advancedCourses$ = loadCourses$.pipe(
       map((courses) =>
         courses.filter((course) => course.category === 'ADVANCED')
       )
