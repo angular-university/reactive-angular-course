@@ -3,7 +3,7 @@
 
 This repository contains the code of the [Reactive Angular Course](https://angular-university.io/course/reactive-angular-course).
 
-This course repository is updated to Angular v11.
+This course repository is updated to Angular v12.
 
 ![Reactive Angular Course](https://angular-university.s3-us-west-1.amazonaws.com/course-images/reactive-angular-course.jpg)
 
