@@ -16,5 +16,9 @@
       "dom",
       "ES2017.object"
     ]
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": false,
+    "strictInjectionParameters": true
   }
 }
