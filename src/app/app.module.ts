@@ -38,51 +38,49 @@ import {LoadingService} from './loading/loading.service';
 import {MessagesService} from './messages/messages.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    AboutComponent,
-    CourseComponent,
-    CourseDialogComponent,
-    LoginComponent,
-    LessonComponent,
-    SafeUrlPipe,
-    MessagesComponent,
-    SearchLessonsComponent,
-    LoadingComponent,
-    CoursesCardListComponent
-
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatTabsModule,
-    MatSidenavModule,
-    MatListModule,
-    MatToolbarModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatDialogModule,
-    AppRoutingModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatMomentDateModule,
-    ReactiveFormsModule
-  ],
-  providers: [
-      LoadingService,
-      MessagesService
-  ],
-  bootstrap: [AppComponent],
-  entryComponents: [CourseDialogComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        AboutComponent,
+        CourseComponent,
+        CourseDialogComponent,
+        LoginComponent,
+        LessonComponent,
+        SafeUrlPipe,
+        MessagesComponent,
+        SearchLessonsComponent,
+        LoadingComponent,
+        CoursesCardListComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        MatTabsModule,
+        MatSidenavModule,
+        MatListModule,
+        MatToolbarModule,
+        MatInputModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatProgressSpinnerModule,
+        MatDialogModule,
+        AppRoutingModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatMomentDateModule,
+        ReactiveFormsModule
+    ],
+    providers: [
+        LoadingService,
+        MessagesService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
