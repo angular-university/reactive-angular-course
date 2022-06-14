@@ -12,6 +12,10 @@ const app: Application = express();
 
 app.use(bodyParser.json());
 
+const cors = require('cors');
+
+app.use(cors({origin: true}));
+
 app.route('/api/courses').get(getAllCourses);
 
 app.route('/api/courses/:id').get(getCourseById);
