@@ -21,6 +21,10 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient, private dialog: MatDialog, private coursesService: CoursesService) {}
 
   ngOnInit() {
+    this.reloadCourses();
+  }
+
+  reloadCourses() {
     const courses$ = this.coursesService.loadAllCourses()
       .pipe(
         map(courses => courses.sort(sortCoursesBySeqNo))
