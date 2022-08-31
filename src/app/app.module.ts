@@ -49,7 +49,6 @@ import { CoursesCardListComponent } from './courses-card-list/courses-card-list.
     SearchLessonsComponent,
     LoadingComponent,
     CoursesCardListComponent
-
   ],
   imports: [
     BrowserModule,
