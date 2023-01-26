@@ -12,6 +12,12 @@ export interface Course {
 }
 
 
+// funskjoni na mundeson renditjen e objekteve nga me i vogli te me i madhi 
+// ku mer 2 objekte e para brenda nje array, dhe i rendit sipas numra vete " seqNo " 
+// po te kontrollosh te dhenat http://localhost:9000/api/courses, objektet brenda array jan te cregullt si pas renditjes se numrave " seqNo "
+// me ndimen e ket funksjoni thjesh rendisim objekte brenda array
 export function sortCoursesBySeqNo(c1: Course, c2: Course) {
   return c1.seqNo - c2.seqNo;
 }
+
+
