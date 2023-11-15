@@ -58,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "reactive-angular-course:build"
+            "buildTarget": "reactive-angular-course:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "reactive-angular-course:build:production"
+              "buildTarget": "reactive-angular-course:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "reactive-angular-course:build"
+            "buildTarget": "reactive-angular-course:build"
           }
         },
         "test": {
