@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit} from '@angular/core';
 import {Course} from '../model/course';
-import { Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {CoursesService} from '../services/courses.service';
 import {ActivatedRoute,} from "@angular/router";
 
@@ -28,19 +28,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.beginnerCourses = this.route.snapshot.data.home.beginnerCourses;
+    this.beginnerCoursesSubscription = this.coursesService.loadCoursesPerCategory("BEGINNER")
+      .subscribe(courses => this.beginnerCourses = courses);
 
-    this.advancedCourses = this.route.snapshot.data.home.advancedCourses;
+    this.advancedCoursesSubscription = this.coursesService.loadCoursesPerCategory("ADVANCED")
+      .subscribe(courses => this.advancedCourses = courses);
 
-  }
-
-  reloadCourses() {
-
-          this.beginnerCoursesSubscription = this.coursesService.loadCoursesPerCategory("BEGINNER")
-            .subscribe(courses => this.beginnerCourses = courses);
-
-          this.advancedCoursesSubscription = this.coursesService.loadCoursesPerCategory("ADVANCED")
-            .subscribe(courses => this.advancedCourses = courses);
 
   }
 

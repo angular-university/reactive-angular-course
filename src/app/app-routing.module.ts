@@ -14,7 +14,7 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     resolve: {
-      home: homeResolverPromises
+      home: ""
     }
 
   },
