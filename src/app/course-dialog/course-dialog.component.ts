@@ -8,7 +8,6 @@ import {LoadingService} from '../loading/loading.service';
 import {MessagesService} from '../messages/messages.service';
 import {throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
-import {CoursesStore} from '../services/courses.store';
 
 @Component({
     selector: 'course-dialog',
@@ -29,7 +28,7 @@ export class CourseDialogComponent {
         private fb: FormBuilder,
         private dialogRef: MatDialogRef<CourseDialogComponent>,
         @Inject(MAT_DIALOG_DATA) course:Course,
-        private coursesStore: CoursesStore,
+        private coursesStore: CoursesService,
         private messagesService: MessagesService) {
 
         this.course = course;

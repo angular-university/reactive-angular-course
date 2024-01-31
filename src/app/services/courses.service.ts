@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Course} from '../model/course';
+import {Course, sortCoursesBySeqNo} from '../model/course';
 import {Observable} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';
 import {Lesson} from '../model/lesson';
@@ -39,6 +39,15 @@ export class CoursesService {
         return this.http.get<Course[]>("/api/courses")
             .pipe(
                 map(res => res["payload"]),
+                shareReplay()
+            );
+    }
+
+    loadCoursesPerCategory(category:string): Observable<Course[]> {
+        return this.http.get<Course[]>("/api/courses")
+            .pipe(
+                map(res => res["payload"]),
+                map(courses => courses.filter(course => course.category == category).sort(sortCoursesBySeqNo)),
                 shareReplay()
             );
     }

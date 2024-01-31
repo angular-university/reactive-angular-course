@@ -5,11 +5,17 @@ import {AboutComponent} from './about/about.component';
 import {CourseComponent} from './course/course.component';
 import {LoginComponent} from './login/login.component';
 import {SearchLessonsComponent} from './search-lessons/search-lessons.component';
+import {homeResolverPromises} from "./home/home-promises.resolver";
+import {homeResolver} from "./home/home.resolver";
+
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    resolve: {
+      home: homeResolverPromises
+    }
 
   },
   {
