@@ -1,26 +1,33 @@
 
-<div class="courses-panel">
+@if({beginnerCourses: (beginnerCourses$ | async),
+  advancedCourses: (advancedCourses$ | async) }; as data) {
 
-        <h3>All Courses</h3>
+  <div class="courses-panel">
 
-        <mat-tab-group>
+    <h3>All Courses</h3>
 
-            <mat-tab label="Beginners">
+    <mat-tab-group>
 
-                <courses-card-list [courses]="beginnerCourses" />
+      <mat-tab label="Beginners">
+
+        <courses-card-list [courses]="data.beginnerCourses" />
 
 
-            </mat-tab>
+      </mat-tab>
 
-        <mat-tab label="Advanced">
+      <mat-tab label="Advanced">
 
-            <courses-card-list [courses]="advancedCourses" />
+        <courses-card-list [courses]="data.advancedCourses" />
 
-        </mat-tab>
+      </mat-tab>
 
     </mat-tab-group>
 
 
 
-</div>
+  </div>
+
+
+
+}
 

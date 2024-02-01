@@ -10,15 +10,11 @@ import {ActivatedRoute,} from "@angular/router";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
 
-  beginnerCourses: Course[];
+  beginnerCourses$: Observable<Course[]>;
 
-  advancedCourses: Course[];
-
-  beginnerCoursesSubscription: Subscription;
-
-  advancedCoursesSubscription: Subscription;
+  advancedCourses$: Observable<Course[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,23 +24,34 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.beginnerCoursesSubscription = this.coursesService.loadCoursesPerCategory("BEGINNER")
-      .subscribe(courses => this.beginnerCourses = courses);
+    this.beginnerCourses$ =
+      this.coursesService.loadCoursesPerCategory(
+        "BEGINNER");
 
-    this.advancedCoursesSubscription = this.coursesService.loadCoursesPerCategory("ADVANCED")
-      .subscribe(courses => this.advancedCourses = courses);
-
-
-  }
-
-  ngOnDestroy() {
-
-    this.beginnerCoursesSubscription.unsubscribe();
-
-    this.advancedCoursesSubscription.unsubscribe();
+    this.advancedCourses$ =
+      this.coursesService.loadCoursesPerCategory(
+        "ADVANCED");
 
   }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
