@@ -27,49 +27,48 @@ interface CourseData {
 @Component({
   selector: 'course',
   templateUrl: './course.component.html',
-  styleUrls: ['./course.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
 
   data$: Observable<CourseData>;
 
+  courseId:number;
 
-  constructor(private route: ActivatedRoute,
-              private coursesService: CoursesService) {
+  constructor(
+    private route: ActivatedRoute,
+    private coursesService: CoursesService) {
 
+    this.courseId = parseInt(this.route.snapshot.paramMap.get("courseId"));
 
   }
 
   ngOnInit() {
 
-        const courseId = parseInt(this.route.snapshot.paramMap.get("courseId"));
-
-        const course$ = this.coursesService.loadCourseById(courseId)
-            .pipe(
-                startWith(null)
-            );
-
-        const lessons$ = this.coursesService.loadAllCourseLessons(courseId)
-            .pipe(
-                startWith([])
-            );
-
-        this.data$ = combineLatest([course$, lessons$])
-            .pipe(
-                map(([course, lessons]) => {
-                    return {
-                        course,
-                        lessons
-                    }
-                }),
-                tap(console.log)
-            );
-
+    this.loadData()
+      .then(() => console.log("Data loaded"));
 
   }
 
 
+  async loadData() {
+
+    const course$ = this.coursesService.loadCourseById(this.courseId);
+
+    const lessons$ = this.coursesService.loadAllCourseLessons(this.courseId);
+
+    this.data$ = combineLatest([course$, lessons$])
+      .pipe(
+        startWith([null, []]),
+        map(([course, lessons]) => {
+          return {
+            course,
+            lessons
+          }
+        }),
+        tap(console.log)
+      );
+  }
 }
 
 
