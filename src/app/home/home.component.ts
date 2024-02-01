@@ -12,25 +12,23 @@ import {ActivatedRoute,} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-  beginnerCourses$: Observable<Course[]>;
+  beginnerCourses: Course[];
 
-  advancedCourses$: Observable<Course[]>;
+  advancedCourses: Course[];
 
   constructor(
-    private route: ActivatedRoute,
-    private coursesService: CoursesService) {
+    private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
 
-    this.beginnerCourses$ =
-      this.coursesService.loadCoursesPerCategory(
-        "BEGINNER");
-
-    this.advancedCourses$ =
-      this.coursesService.loadCoursesPerCategory(
-        "ADVANCED");
+    this.route.data.subscribe(
+      data => {
+        this.beginnerCourses = data['home'].beginnerCourses;
+        this.advancedCourses = data['home'].advancedCourses;
+      }
+    );
 
   }
 

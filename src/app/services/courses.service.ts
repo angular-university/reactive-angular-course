@@ -43,13 +43,14 @@ export class CoursesService {
             );
     }
 
-    loadCoursesPerCategory(category:string): Observable<Course[]> {
+    loadCoursesPerCategory(category:string){
         return this.http.get<Course[]>("/api/courses")
             .pipe(
                 map(res => res["payload"]),
                 map(courses => courses.filter(course => course.category == category).sort(sortCoursesBySeqNo)),
                 shareReplay()
-            );
+
+            ).toPromise();
     }
 
 

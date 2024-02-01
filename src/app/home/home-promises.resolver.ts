@@ -12,9 +12,9 @@ export const homeResolverPromises: ResolveFn<HomeData> =
 
       const coursesService = inject(CoursesService);
 
-      const beginnerCourses = await firstValueFrom(coursesService.loadCoursesPerCategory("BEGINNER"));
+      const beginnerCourses = await coursesService.loadCoursesPerCategory("BEGINNER");
 
-      const advancedCourses = await coursesService.loadCoursesPerCategory("ADVANCED").toPromise();
+      const advancedCourses = await coursesService.loadCoursesPerCategory("ADVANCED");
 
       return {
         beginnerCourses,

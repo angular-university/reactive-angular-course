@@ -45,27 +45,20 @@ export class CourseComponent implements OnInit {
 
   ngOnInit() {
 
-    this.loadData()
-      .then(() => console.log("Data loaded"));
+    this.loadData();
 
   }
 
 
-  async loadData() {
+  loadData() {
 
     const course$ = this.coursesService.loadCourseById(this.courseId);
 
     const lessons$ = this.coursesService.loadAllCourseLessons(this.courseId);
 
-    this.data$ = combineLatest([course$, lessons$])
+    this.data$ = combineLatest({course: course$, lessons: lessons$})
       .pipe(
         startWith([null, []]),
-        map(([course, lessons]) => {
-          return {
-            course,
-            lessons
-          }
-        }),
         tap(console.log)
       );
   }

@@ -1,6 +1,4 @@
 
-@if({beginnerCourses: (beginnerCourses$ | async),
-  advancedCourses: (advancedCourses$ | async) }; as data) {
 
   <div class="courses-panel">
 
@@ -10,14 +8,14 @@
 
       <mat-tab label="Beginners">
 
-        <courses-card-list [courses]="data.beginnerCourses" />
+        <courses-card-list [courses]="beginnerCourses" />
 
 
       </mat-tab>
 
       <mat-tab label="Advanced">
 
-        <courses-card-list [courses]="data.advancedCourses" />
+        <courses-card-list [courses]="advancedCourses" />
 
       </mat-tab>
 
@@ -29,5 +27,4 @@
 
 
 
-}
 
