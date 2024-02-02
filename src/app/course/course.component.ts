@@ -31,9 +31,42 @@ interface CourseData {
 })
 export class CourseComponent implements OnInit {
 
-  data$: Observable<CourseData>;
+  course: Course;
+
+  lessons: Lesson[];
 
   courseId:number;
+
+
+
+
+
+
+
+   ngOnInit() {
+
+    this.course = this.route.snapshot.data.home.course;
+    this.lessons = this.route.snapshot.data.home.lessons;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   constructor(
     private route: ActivatedRoute,
@@ -42,39 +75,6 @@ export class CourseComponent implements OnInit {
     this.courseId = parseInt(this.route.snapshot.paramMap.get("courseId"));
 
   }
-
-
-
-
-
-  ngOnInit() {
-
-    const course$ = this.coursesService
-          .loadCourseById(
-            this.courseId);
-
-    const lessons$ = this.coursesService
-            .loadAllCourseLessons(
-              this.courseId);
-
-    this.data$ = combineLatest({
-      course: course$,
-      lessons: lessons$
-    })
-      .pipe(
-        startWith({
-          course: null,
-          lessons: []
-        }));
-  }
-
-
-
-
-
-
-
-
 
 
 

@@ -1,12 +1,11 @@
-@if (data$ | async; as data) {
 
   <div class="course">
 
-    <h2>{{data.course?.description}}</h2>
+    <h2>{{course?.description}}</h2>
 
-    <img class="course-thumbnail" [src]="data.course?.iconUrl" *ngIf="data.course">
+    <img class="course-thumbnail" [src]="course?.iconUrl" *ngIf="course">
 
-    <table class="lessons-table mat-elevation-z7" *ngIf="data?.lessons?.length">
+    <table class="lessons-table mat-elevation-z7" *ngIf="lessons?.length">
 
       <thead>
 
@@ -16,7 +15,7 @@
 
       </thead>
 
-      <tr class="lesson-row" *ngFor="let lesson of data.lessons">
+      <tr class="lesson-row" *ngFor="let lesson of lessons">
         <td class="seqno-cell">{{lesson.seqNo}}</td>
         <td class="description-cell">{{lesson.description}}</td>
         <td class="duration-cell">{{lesson.duration}}</td>
@@ -26,7 +25,6 @@
 
   </div>
 
-}
 
 
 

@@ -19,10 +19,11 @@ export class CoursesService {
        return this.http.get<Course>(`/api/courses/${courseId}`)
             .pipe(
               shareReplay()
-            );
+            )
+         .toPromise();
     }
 
-    loadAllCourseLessons(courseId:number): Observable<Lesson[]> {
+    loadAllCourseLessons(courseId:number) {
         return this.http.get<Lesson[]>('/api/lessons', {
             params: {
                 pageSize: "10000",
@@ -32,7 +33,8 @@ export class CoursesService {
             .pipe(
                 map(res => res["payload"]),
                 shareReplay()
-            );
+            )
+          .toPromise();
     }
 
     loadAllCourses(): Observable<Course[]> {

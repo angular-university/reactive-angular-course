@@ -4,6 +4,7 @@ import {inject} from "@angular/core";
 import {CoursesService} from "../services/courses.service";
 import {forkJoin} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 
 export const homeResolver: ResolveFn<HomeData> =
@@ -16,6 +17,7 @@ export const homeResolver: ResolveFn<HomeData> =
       advancedCourses: coursesService.loadCoursesPerCategory("ADVANCED")
     })
       .pipe(
+        takeUntilDestroyed(),
         catchError(err => {
           console.log(err);
           throw err;
