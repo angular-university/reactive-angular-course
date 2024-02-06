@@ -37,12 +37,6 @@ export class CourseComponent implements OnInit {
 
   courseId:number;
 
-
-
-
-
-
-
    ngOnInit() {
 
     this.course = this.route.snapshot.data.home.course;

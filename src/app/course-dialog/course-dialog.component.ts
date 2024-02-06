@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Inject} from '@angular/core';
+import {AfterViewInit, Component, DestroyRef, inject, Inject} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import {Course} from "../model/course";
 import {FormBuilder, Validators, FormGroup} from "@angular/forms";
@@ -8,6 +8,7 @@ import {LoadingService} from '../loading/loading.service';
 import {MessagesService} from '../messages/messages.service';
 import {throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 @Component({
     selector: 'course-dialog',
@@ -29,7 +30,8 @@ export class CourseDialogComponent {
         private dialogRef: MatDialogRef<CourseDialogComponent>,
         @Inject(MAT_DIALOG_DATA) course:Course,
         private coursesStore: CoursesService,
-        private messagesService: MessagesService) {
+        private messagesService: MessagesService,
+        private destroyRef: DestroyRef) {
 
         this.course = course;
 
@@ -47,6 +49,9 @@ export class CourseDialogComponent {
       const changes = this.form.value;
 
       this.coursesStore.saveCourse(this.course.id, changes)
+        .pipe(
+          takeUntilDestroyed(this.destroyRef)
+        )
           .subscribe();
 
       this.dialogRef.close(changes);
