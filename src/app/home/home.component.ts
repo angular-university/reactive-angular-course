@@ -1,9 +1,6 @@
-import { Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Course} from '../model/course';
-import {Observable, Subscription} from 'rxjs';
-import {CoursesService} from '../services/courses.service';
 import {ActivatedRoute,} from "@angular/router";
-
 
 @Component({
   selector: 'home',
@@ -16,24 +13,37 @@ export class HomeComponent implements OnInit {
 
   advancedCourses: Course[];
 
-  constructor(
-    private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
 
-    this.route.data.subscribe(
-      data => {
-        this.beginnerCourses = data['home'].beginnerCourses;
-        this.advancedCourses = data['home'].advancedCourses;
-      }
-    );
+    this.beginnerCourses = this.route.snapshot.data['home'].beginnerCourses;
+
+    this.advancedCourses = this.route.snapshot.data['home'].advancedCourses;
 
   }
 
 
+  onModify() {
+
+    const newCourses = [...this.beginnerCourses];
+
+    newCourses[0] = {
+      ...newCourses[0],
+      description: "Angular Core Deep Dive"
+    }
+
+    this.beginnerCourses = newCourses;
+
+  }
+
 }
+
+
+
+
 
 
 

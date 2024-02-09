@@ -1,8 +1,10 @@
 
-
 .courses-panel {
-    max-width: 400px;
-    margin: 0 auto;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
-
+.modify {
+  margin-top: 50px;
+  margin-left: 50px;
+}
