@@ -7,6 +7,7 @@ import {LoginComponent} from './login/login.component';
 import {SearchLessonsComponent} from './search-lessons/search-lessons.component';
 import {homeResolverPromises} from "./home/home-promises.resolver";
 import {homeResolver} from "./home/home.resolver";
+import {SignalsDemoComponent} from "./signals-demo/signals-demo.component";
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
       home: homeResolver
     }
 
+  },
+  {
+    path:"signals",
+    component: SignalsDemoComponent
   },
   {
     path:"search-lessons",
