@@ -4,6 +4,8 @@ import {
   Component,signal
 } from "@angular/core";
 import {CourseCardComponent} from "../course-card/course-card.component";
+import {Course} from "../model/course";
+import {SignalCourseService} from "./signal-course.service";
 
 
 @Component({
@@ -11,9 +13,9 @@ import {CourseCardComponent} from "../course-card/course-card.component";
   styleUrl: './signals-demo.component.scss',
   template: `
 
-  <course-card [course]=""/>
+  <course-card />
 
-  <button (click)="onIncrement()">
+  <button (click)="updateCourse()">
       Increment
   </button>`,
   standalone: true,
@@ -21,13 +23,14 @@ import {CourseCardComponent} from "../course-card/course-card.component";
 })
 export class SignalsDemoComponent  {
 
-  count = signal(0);
+  constructor(private courseService: SignalCourseService) {
 
-  onIncrement() {
-
-    this.count.update(val => val + 1);
   }
 
+  updateCourse() {
+
+    this.courseService.updateCourseTitle('New Title');
+  }
 }
 
 

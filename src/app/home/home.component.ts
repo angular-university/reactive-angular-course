@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Course} from '../model/course';
 import {ActivatedRoute,} from "@angular/router";
+import {SignalCourseService} from "../signals-demo/signal-course.service";
 
 @Component({
   selector: 'home',
@@ -13,7 +14,9 @@ export class HomeComponent implements OnInit {
 
   advancedCourses: Course[];
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    public courseService: SignalCourseService) {
 
   }
 
