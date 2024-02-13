@@ -8,9 +8,15 @@ export interface Course {
   price: number;
   uploadedImageUrl: string;
   courseListIcon: string;
-  category: string;
-  lessonsCount: number;
+  extra: {
+    category: string;
+    lessonsCount: number;
+  }
 }
+
+
+
+
 
 
 export function sortCoursesBySeqNo(c1: Course, c2: Course) {

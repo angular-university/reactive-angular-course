@@ -37,7 +37,7 @@ export class CourseDialogComponent {
 
         this.form = fb.group({
             description: [course.description, Validators.required],
-            category: [course.category, Validators.required],
+            category: [course.extra.category, Validators.required],
             releasedAt: [moment(), Validators.required],
             longDescription: [course.longDescription,Validators.required]
         });
