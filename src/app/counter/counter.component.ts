@@ -3,17 +3,13 @@ import {MatButton} from "@angular/material/button";
 
 
 @Component({
-  selector: 'signal-counter',
+  selector: 'counter',
   styleUrl: './counter.component.scss',
   template: `
       <div class="counter">
 
-          <div>Counter value: {{ count() }}</div>
+          <div>Counter value: {{ counter() }}</div>
 
-          <button mat-raised-button color="accent"
-                  (click)="onIncrement()">
-              Increment
-          </button>
       </div>
   `,
   imports: [MatButton],
@@ -21,10 +17,6 @@ import {MatButton} from "@angular/material/button";
 })
 export class CounterComponent {
 
-  count = model(0);
-
-  onIncrement() {
-    this.count.update(val => val + 1);
-  }
+  counter = input(0);
 
 }

@@ -1,33 +1,30 @@
 
-import {CounterComponent} from "../counter/counter.component";
+                                  import {CounterComponent} from "../counter/counter.component";
+                                  import {
+                                    Component,signal
+                                  } from "@angular/core";
 
-import {
-  model,
-  viewChild,
-  viewChildren,
-  contentChild,
-  contentChildren,
-  Component,
-  effect, ViewChild, AfterViewInit
-} from "@angular/core";
 
-@Component({
-  selector: 'signals-demo',
-  styleUrl: './signals-demo.component.scss',
-  template: `
-<p>Parent counter: {{parentCounter}}</p>
+                                  @Component({
+                                    selector: 'signals-demo',
+                                    styleUrl: './signals-demo.component.scss',
+                                    template: `<counter [counter]="count()" />
+                                    <button (click)="onIncrement()">
+                                        Increment
+                                    </button>`,
+                                    standalone: true,
+                                    imports: [CounterComponent]
+                                  })
+                                  export class SignalsDemoComponent  {
 
-<signal-counter  [(count)]="parentCounter" />
+                                    count = signal(0);
 
-`,
-  standalone: true,
-  imports: [CounterComponent]
-})
-export class SignalsDemoComponent  {
+                                    onIncrement() {
 
-  parentCounter = 100;
+                                      this.count.update(val => val + 1);
+                                    }
 
-}
+                                  }
 
 
 
