@@ -7,14 +7,12 @@ import {Course} from "../model/course";
 })
 export class SignalCourseService {
 
-  #course: Course = {
+  course = signal<Course>({
     id: "100",
     description: 'Angular Core Deep Dive',
-    longDescription: 'A detailed walk-through on Angular Core',
-    iconUrl: 'https://angular-university.s3.amazonaws.com/main-logo.png'
-  }
-
-  course = signal(this.#course);
+    longDescription: 'A detailed walk-through on the core part of Angular',
+    iconUrl: 'https://angular-academy.s3.amazonaws.com/website-images/logos/angular-university-logo-v2.png'
+  });
 
   updateCourseTitle(newTitle: string) {
     this.course.update(course => ({
