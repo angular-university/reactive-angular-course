@@ -7,8 +7,8 @@ import {SignalCourseService} from "../signals-demo/signal-course.service";
   selector: "course-card",
   template: `
     <div class = "course">
-      <h1>{{ courseService.course().description }}</h1>
-      <h2>{{courseService.course().longDescription}}</h2>
+      <h3>{{ courseService.course().description }}</h3>
+      <h4>{{courseService.course().longDescription}}</h4>
       <img [src]="courseService.course().iconUrl">
     </div>
   `,
