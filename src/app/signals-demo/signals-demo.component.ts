@@ -16,7 +16,7 @@ import {SignalCourseService} from "./signal-course.service";
   <course-card />
 
   <button (click)="updateCourse()">
-      Increment
+      Modify Course
   </button>`,
   standalone: true,
   imports: [CounterComponent, CourseCardComponent]
