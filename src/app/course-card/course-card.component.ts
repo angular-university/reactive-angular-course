@@ -1,4 +1,4 @@
-import {Component, input} from "@angular/core";
+import {Component, effect, inject, input} from "@angular/core";
 import {Course} from "../model/course";
 import {SignalCourseService} from "../signals-demo/signal-course.service";
 
@@ -16,7 +16,18 @@ import {SignalCourseService} from "../signals-demo/signal-course.service";
 })
 export class CourseCardComponent {
 
-  constructor(public courseService: SignalCourseService) {
+  courseService = inject(SignalCourseService);
+
+  constructor() {
+
+    effect(() => {
+
+      console.log(
+        `CourseCardComponent received new course:`,
+        this.courseService.course()
+      )
+
+    })
 
   }
 

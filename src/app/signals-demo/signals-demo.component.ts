@@ -6,6 +6,7 @@ import {
 import {CourseCardComponent} from "../course-card/course-card.component";
 import {Course} from "../model/course";
 import {SignalCourseService} from "./signal-course.service";
+import {MatButton} from "@angular/material/button";
 
 
 @Component({
@@ -15,11 +16,12 @@ import {SignalCourseService} from "./signal-course.service";
 
   <course-card />
 
-  <button (click)="updateCourse()">
+  <button mat-raised-button color="primary"
+    (click)="updateCourse()">
       Modify Course
   </button>`,
   standalone: true,
-  imports: [CounterComponent, CourseCardComponent]
+  imports: [CounterComponent, CourseCardComponent, MatButton]
 })
 export class SignalsDemoComponent  {
 

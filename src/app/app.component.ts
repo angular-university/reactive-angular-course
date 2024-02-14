@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, effect, inject, OnInit} from '@angular/core';
 import {LoadingService} from './loading/loading.service';
 import {MessagesService} from './messages/messages.service';
 import {AuthStore} from './services/auth.store';
+import {SignalCourseService} from "./signals-demo/signal-course.service";
 
 
 
@@ -10,19 +11,20 @@ import {AuthStore} from './services/auth.store';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements  OnInit {
+export class AppComponent {
 
-    constructor(public auth: AuthStore) {
+  courseService = inject(SignalCourseService);
 
-    }
+  constructor() {
 
-    ngOnInit() {
+    effect(() => {
 
+      console.log(
+        `HomeComponent received new course:`,
+        this.courseService.course()
+      )
 
-    }
-
-  logout() {
-        this.auth.logout();
+    })
 
   }
 
