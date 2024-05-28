@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {Course} from '../model/course';
 import {Observable} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';

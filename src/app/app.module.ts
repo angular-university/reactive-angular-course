@@ -23,7 +23,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {HttpClientModule} from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import {CourseDialogComponent} from './course-dialog/course-dialog.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
@@ -37,8 +37,7 @@ import { CoursesCardListComponent } from './courses-card-list/courses-card-list.
 import {LoadingService} from './loading/loading.service';
 import {MessagesService} from './messages/messages.service';
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
         HomeComponent,
         AboutComponent,
@@ -52,10 +51,8 @@ import {MessagesService} from './messages/messages.service';
         LoadingComponent,
         CoursesCardListComponent
     ],
-    imports: [
-        BrowserModule,
+    bootstrap: [AppComponent], imports: [BrowserModule,
         BrowserAnimationsModule,
-        HttpClientModule,
         MatMenuModule,
         MatButtonModule,
         MatIconModule,
@@ -74,13 +71,10 @@ import {MessagesService} from './messages/messages.service';
         MatSelectModule,
         MatDatepickerModule,
         MatMomentDateModule,
-        ReactiveFormsModule
-    ],
-    providers: [
+        ReactiveFormsModule], providers: [
         LoadingService,
-        MessagesService
-    ],
-    bootstrap: [AppComponent]
-})
+        MessagesService,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule {
 }

@@ -2,7 +2,7 @@ import {Inject, Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../model/user';
 import {map, shareReplay, tap} from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 const AUTH_DATA = "auth_data";
 

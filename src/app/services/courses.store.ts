@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import {Course, sortCoursesBySeqNo} from '../model/course';
 import {catchError, map, shareReplay, tap} from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {LoadingService} from '../loading/loading.service';
 import {MessagesService} from '../messages/messages.service';
 
