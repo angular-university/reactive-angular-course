@@ -18,9 +18,10 @@ import {Lesson} from '../model/lesson';
 
 
 @Component({
-  selector: 'course',
-  templateUrl: './search-lessons.component.html',
-  styleUrls: ['./search-lessons.component.css']
+    selector: 'course',
+    templateUrl: './search-lessons.component.html',
+    styleUrls: ['./search-lessons.component.css'],
+    standalone: false
 })
 export class SearchLessonsComponent implements OnInit {
 
