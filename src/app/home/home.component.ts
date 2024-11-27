@@ -5,10 +5,11 @@ import {CoursesStore} from '../services/courses.store';
 
 
 @Component({
-  selector: 'home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class HomeComponent implements OnInit {
 

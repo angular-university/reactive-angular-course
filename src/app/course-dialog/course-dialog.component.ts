@@ -17,7 +17,8 @@ import {CoursesStore} from '../services/courses.store';
     providers: [
         LoadingService,
         MessagesService
-    ]
+    ],
+    standalone: false
 })
 export class CourseDialogComponent {
 

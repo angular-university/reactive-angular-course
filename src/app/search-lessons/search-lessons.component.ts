@@ -19,10 +19,11 @@ import {CoursesService} from '../services/courses.service';
 
 
 @Component({
-  selector: 'course',
-  templateUrl: './search-lessons.component.html',
-  styleUrls: ['./search-lessons.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'course',
+    templateUrl: './search-lessons.component.html',
+    styleUrls: ['./search-lessons.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SearchLessonsComponent implements OnInit {
 

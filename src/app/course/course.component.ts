@@ -25,10 +25,11 @@ interface CourseData {
 
 
 @Component({
-  selector: 'course',
-  templateUrl: './course.component.html',
-  styleUrls: ['./course.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'course',
+    templateUrl: './course.component.html',
+    styleUrls: ['./course.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class CourseComponent implements OnInit {
 

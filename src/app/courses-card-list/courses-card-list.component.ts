@@ -5,10 +5,11 @@ import {CourseDialogComponent} from '../course-dialog/course-dialog.component';
 import {filter, tap} from 'rxjs/operators';
 
 @Component({
-  selector: 'courses-card-list',
-  templateUrl: './courses-card-list.component.html',
-  styleUrls: ['./courses-card-list.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'courses-card-list',
+    templateUrl: './courses-card-list.component.html',
+    styleUrls: ['./courses-card-list.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class CoursesCardListComponent implements OnInit {
 
