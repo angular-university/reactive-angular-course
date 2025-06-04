@@ -1,5 +1,5 @@
 
->>> body {
+body {
     margin: 0;
 }
 
@@ -22,4 +22,8 @@ main {
 .filler {
   flex: 1 1 auto;
   width: 100%;
+}
+
+mat-icon {
+  vertical-align: middle;
 }
