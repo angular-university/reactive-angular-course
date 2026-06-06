@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import {Course} from "../model/course";
 import {FormBuilder, Validators, FormGroup} from "@angular/forms";
@@ -10,6 +10,7 @@ import {throwError} from 'rxjs';
     selector: 'course-dialog',
     templateUrl: './course-dialog.component.html',
     styleUrls: ['./course-dialog.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CourseDialogComponent implements AfterViewInit {

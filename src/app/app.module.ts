@@ -23,7 +23,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import {CourseDialogComponent} from './course-dialog/course-dialog.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
@@ -68,7 +68,7 @@ import { LoadingComponent } from './loading/loading.component';
         MatDatepickerModule,
         MatMomentDateModule,
         ReactiveFormsModule], providers: [
-        provideHttpClient(withInterceptorsFromDi())
+        provideHttpClient(withXhr(), withInterceptorsFromDi())
     ] })
 export class AppModule {
 }

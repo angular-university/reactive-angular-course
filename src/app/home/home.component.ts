@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {Course, sortCoursesBySeqNo} from '../model/course';
 import {interval, noop, Observable, of, throwError, timer} from 'rxjs';
 import {catchError, delay, delayWhen, filter, finalize, map, retryWhen, shareReplay, tap} from 'rxjs/operators';
@@ -11,6 +11,7 @@ import {CourseDialogComponent} from '../course-dialog/course-dialog.component';
     selector: 'home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class HomeComponent implements OnInit {
