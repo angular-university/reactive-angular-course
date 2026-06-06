@@ -2,7 +2,7 @@
   <div class="course">
     <h2>{{data.course?.description}}</h2>
     @if (data.course) {
-      <img class="course-thumbnail" [src]="data.course?.iconUrl">
+      <img class="course-thumbnail" [src]="data.course!.iconUrl">
     }
     @if (data.lessons.length) {
       <table class="lessons-table mat-elevation-z7">
