@@ -58,7 +58,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "reactive-angular-course:build"
+            "buildTarget": "reactive-angular-course:build",
+             "proxyConfig": "proxy.json"
           },
           "configurations": {
             "production": {
